@@ -9,9 +9,6 @@ Le projet vise la réalisation d'une application web permettant la gestion compl
 - Installation d'extensions Snippet HTML, CSS, JS pour la visibilité.
 - Installation du live editor pour avoir un aperçu des modifications en direct.
 
-## Configuration
-
-
 
 ## Organisation
 
@@ -47,24 +44,29 @@ En partant du principe qu'un administrateur est un utilisateur avec des privilè
 
 ## Utilisation
 
-**Attention : Les clés secrètes sont écrites ici sans sécurité ! Il faut les retirer en cas de véritable mise en production.**
-
-**La base de données MySQL a été vidée.** Il faut être connecté pour voir son profil, voir ses emprunts ou encore réaliser un emprunt. L'ajout, la modification et la suppression des médias se font avec un compte administrateur. Il n'existe qu'un compte par défaut, et c'est un admin avec les identifiants suivants :
+**La base de données MySQL a été vidée**. Il faut être connecté pour voir son profil, consulter ses emprunts ou réaliser un nouvel emprunt. L'ajout, la modification et la suppression des médias nécessitent un compte administrateur. Grâce à l'authentification sécurisée d'API Platform, le système génère un token JWT lors de la connexion. Par défaut, un seul compte administrateur existe avec les identifiants suivants :
 
 - Email : `admin@cesi.fr`
 - Mot de Passe : `4dm1n_p422w0rd`
 
-Les médias déjà empruntés ne sont pas visibles depuis la page d'accueil, mais seront affichés dans la page de recherche ou, si on connaît l'identifiant du média, depuis l'URL `Silmarillion/medias/id`.
+**Médias**
+Les médias déjà empruntés ne sont pas visibles depuis la page d'accueil, mais ils apparaissent dans les résultats de recherche ou peuvent être consultés directement via l'URL `Silmarillion/medias/{id}` si vous connaissez leur identifiant.
+Avec un compte avec le role admin, vous pouvez : 
+- Ajouter un média depuis la page d'accueil en remplissant les champ (en ce qui concerne l'image, il faut la télécharger et la placer dans public/images)
+- Modifier un média 
+- Supprimer un média (!Attention : l'action est définitive!)
 
-La recherche se fait avec la navbar :
-- On peut chercher un champ vide pour voir tous les médias.
-- On peut entrer un champ pour faire une recherche avancée.
-- On peut choisir le format de pagination grâce à la sélection sur la page de recherche.
+**Recherche**
+La recherche s'effectue depuis la barre de navigation :
+- Vous pouvez laisser le champ vide pour afficher tous les médias
+- Vous pouvez saisir des termes pour effectuer une recherche avancée
+- Le format de pagination peut être ajusté via le sélecteur disponible sur la page de recherche
 
-Utilisation d'une machine virtuelle pour héberger l'API. Code réalisé avec une connexion ssh. Avec API Platform en CLI depuis Symfony, on se connecte à la base de données avec les identifiants. On donne accès à toutes les IP avec un `symfony server:start --allow-all-ip`. Un accès à la documentation est disponible à `/api/`.  
-![Documentation API](imgREADME/image-10.png)
+**Accueil**
+En s'identifiant, deux boutons apparaissent sur la page d'accueil : 
+- Un pour voir les informations de son compte ainsi qu'un graphique permettant de voir les statistiques des emprunt
+- Un pour voir les emprunts actuels ainsi que l'historique de tous les emprunts
 
-Grâce aux logs sécurisés d'API Platform, la méthode d'authentification permet de générer un token JWT.  
-(Logs de test : email : `test@test.fr`, mot de passe : `password`)  
-Si aucun JWT n'est fourni dans les requêtes, elles renvoient un message d'erreur.
 
+**En cas de problème**
+Si la moindre fonctionnalité ne fonctionne pas, une vidéo démonstration est disponible (vidéo réalisée à partir de la version v1.0.2 du repo Mediatheque_Silmarillion) <video controls src="silmarillion_démo.mp4" title="Title"></video>
