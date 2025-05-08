@@ -1,0 +1,16 @@
+api_platform:
+    # title: Hello API Platform
+    # version: 1.0.0
+    # defaults:
+    #     stateless: true
+    #     cache_headers:
+    #         vary: ['Content-Type', 'Authorization', 'Origin']
+    enable_swagger_ui: true
+    enable_re_doc: true
+    enable_entrypoint: true
+    enable_docs: true
+    swagger :
+        api_keys :
+            JWT :
+                name : Authorization
+                type : header
