@@ -1,0 +1,248 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+:root {
+    --blue : #14213D;
+    --yellow : #FCA311;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    box-sizing: border-box!important;
+}
+
+img.image {
+    flex: 1;
+    display: block; 
+    max-width: 33%;
+    height: auto;
+}
+
+body {
+    background-color: var(--blue);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    background-color: var(--blue);
+    text-decoration: none;
+}
+
+form input{
+    border-radius: 30rem !important;
+    color: var(--blue)!important;
+    margin: 0.5rem 0;
+}
+
+.input.is-primary{
+    border-color:  var(--yellow);
+    outline: none;
+    height: auto !important;
+}
+.input.is-primary:focus {
+    border: 2px solid var(--blue);
+    box-shadow: 0 0 2px var(--blue);
+}
+.input.is-primary:not([value = ""]) {
+    background: white;
+}
+input::placeholder {
+    color: var(--blue)!important;
+    font-weight: bold;
+}
+
+.are-medium {
+    padding: 0 1rem;
+}
+
+.button{
+    background-color: var(--blue);
+    color: white;
+    height: auto;
+    border: white solid 1px ;
+    border-radius: 30rem;
+}
+#Inscription {
+    background-color: var(--yellow)!important;
+}
+
+.button:hover {
+    font-weight: bold;
+}
+
+.button:active {
+    background: var(--yellow);
+}
+#Inscription:active {
+    background: var(--blue)!important;
+}
+
+.form {
+    flex: 3;
+    align-self: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0 1rem;
+    height: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.form-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+}
+.form-button .button {
+    width: 40%;
+    margin: 0.5rem 0;
+}
+
+.form-group {
+    height: auto;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    height: 12.5vh;
+    margin-bottom: 1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center!important;
+    display: flex;
+    font-family: "Princess Sofia" ;
+}
+
+.title.is-1{
+    font-size: calc(12.5vh * 0.4)!important;
+}
+
+@media (min-height: 768px) and (min-width: 1024px) {
+    .input.is-primary{
+        height: calc(7vh)!important;
+    }
+    .form-group {
+        font-size: clamp(1rem, 1.75vw, 4rem);
+    }
+    .button {
+        font-size: clamp(1rem, 1.75vw, 4rem)!important;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        min-height: 100vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    img.image {
+        display: none;
+    }
+    
+
+}
+
+@media (max-width: 1024px) and (min-height: 768px) {
+    main {
+        max-height: 100%;
+        overflow-y: hidden;
+        display: flex;
+        height: auto;
+        justify-content: center;
+    }
+    .form {
+        max-width: 90%;
+    }
+    .logo {
+        height: 20vh;
+    }
+    .title.is-1{
+        font-size: calc(20vh * 0.4)!important;
+    }
+    img.image {
+        display: none;
+    }
+    
+    
+}
+
+@media (max-width: 768px) {
+    main {
+        max-height: 100%;
+        display: flex;
+        height: auto;
+        padding-top: 1rem;
+        justify-content: flex-start;
+    }
+
+    .are-medium {
+        max-height: 100%;
+        display: flex;
+        padding: 0.01rem;
+    }
+
+    .logo {
+        height: 15vh;
+    }
+    .title.is-1{
+        font-size: calc(15vh * 0.3)!important;
+    }
+    img.image {
+        display: none;
+    }
+    
+
+}
+
+@media (max-width: 460px) {
+    main {
+        max-height: 100%;
+        display: flex;
+        height: auto;
+        padding-top: 1rem;
+        justify-content: flex-start;
+    }
+    .button {
+        width: 90%;
+    }
+    .form {
+        max-width: 95%;
+    }
+    .logo {
+        height: 10vh;
+    }
+    .title.is-1{
+        font-size: calc(10vh * 0.4)!important;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+    img.image {
+        display: none;
+    }
+    
+}

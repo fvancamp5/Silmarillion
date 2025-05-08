@@ -1,0 +1,66 @@
+<DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{page_name}}</title>
+        <link rel="stylesheet" href="{{ asset('style/signstyle.css') }}">
+    </head>
+    <body>
+        <main>
+            <!-- si on render avec la condition connexion on montre que la page de connexion 
+            à l'inverse on render le formulaire d'insciption -->
+            {% if connexion == false %}
+                <form method="post" action="{{ path('home') }}" class="form" id="form">
+                    <a href="{{ url('home') }}" class="logo">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" >
+                        <h1 class="title is-1"> Silmarillion </h1>
+                    </a>
+                        <div class="form-group">
+                            <label for="firstname">Prénom:</label>
+                            <input type="text" id="firstname" name="firstname" class="input is-primary" required>
+
+                            <label for="lastname">Nom:</label>
+                            <input type="text" id="lastname" name="lastname" class="input is-primary" required>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="input is-primary" required>
+
+                            <label for="password">Mot de passe:</label>
+                            <input type="password" id="password" name="password" class="input is-primary" required>
+
+                            <label for="confirm_password">Confirmer le mot de passe:</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="input is-primary" required>
+
+                            <div class="form-button">
+                                <button type="submit" class="button" id="Inscription">S'inscrire</button>
+                                <a href="{{ url('connexion') }}" class="button" id="Connexion">Déjà inscrit ?</a>
+                            </div>
+                        </div>
+                </form>
+            {% elseif connexion == true %}
+                <form method="post" action="{{ path('home') }}" class="form" id="form">
+                    <a href="{{ url('home') }}" class="logo">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" >
+                        <h1 class="title is-1"> Silmarillion </h1>
+                    </a>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="input is-primary" required>
+
+                            <label for="password">Mot de passe:</label>
+                            <input type="password" id="password" name="password" class="input is-primary" required>
+
+                            <div class="form-button">
+                                <button type="submit" class="button" id="Connexion">Se connecter</button>
+                                <a href="{{ url('inscription') }}">Se créer un compte</a>
+                            </div>
+                        </div>
+                </form>
+            {% endif %}
+
+        <img src="{{ asset('images/log_bg.png') }}" alt="Médiathèque" class="image">
+        <script src="{{ asset('scripts/validation.js') }}"></script>
+        </main>
+    </body>
+</html>

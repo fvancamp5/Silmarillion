@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ page_name }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="title is-primary"> Emprunts en cours </h1>
+    <div class="history">
+        <table>
+            <thead>
+                <tr>
+                    <th> Médias </th>
+                    <th> Disponibilité </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for media in medias %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('home_id', { id: media.id }) }}" class="media-item">
+                                <img src="{{ asset('images/' ~ media.image) }}" alt="{{ media.title }}">
+                                <p>{{ media.title }}</p>
+                            </a>
+                        </td>
+
+                        {% if media.status %}
+                            <td> Disponible </td>
+                        {% else %}
+                            <td> Non disponible </td>
+                        {% endif %}
+                        
+                    </tr>
+                {% endfor %}
+                {% if medias is empty %}
+                    <tr>
+                        <td> C'est vide par ici ... </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <h1 class="title is-primary"> Historique des emprunts </h1>
+    <div class="history">
+        <table>
+            <thead>
+                <tr>
+                    <th> Médias </th>
+                    <th> Disponibilité </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for media in history %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('home_id', { id: media.id }) }}" class="media-item">
+                                <img src="{{ asset('images/' ~ media.image) }}" alt="{{ media.title }}">
+                                <p>{{ media.title }}</p>
+                            </a>
+                        </td>
+
+                        {% if media.status %}
+                            <td> Disponible </td>
+                        {% else %}
+                            <td> Non disponible </td>
+                        {% endif %}
+                        
+                    </tr>
+                {% endfor %}
+                {% if history is empty %}
+                    <tr>
+                        <td> C'est vide par ici ... </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

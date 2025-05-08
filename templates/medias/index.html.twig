@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ media.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="media-page">
+        <h1 class="title is-primary">{{ media.title }}</h1> 
+        {% if user and "ROLE_ADMIN" in user.roles %}
+            <a href="{{ path("modification", { id:media.id } ) }}" class="button"> Modifier </a>
+        {% endif %}
+        <div class="media-content">
+            <div class="media-image">
+                <img src="{{ asset('images/' ~ media.image) }}" alt="{{ media.title }}">
+            </div>
+            <div class="media-details">
+
+                <p>Auteur :</p>
+                <h2 class="title is-secondary">{{ media.author }}</h2>
+
+                <p>Type :</p>
+                <h2 class="title is-secondary">{{ media.type }}</h2>
+
+                <p>Description : </p>
+                <h2 class="title is-secondary">{{ media.description }}</h2>
+
+                {% if media.status == true %}
+                    <form action="{{ path('home_id', { id: media.id }) }}" method="post">
+                        <input type="submit" class="button" value="Emprunter" id="emprunter" name = "emprunter">
+                    </form>
+                {% elseif media.status == false and condition == true %}
+                    <form action="{{ path('home_id', { id: media.id }) }}" method="post">
+                        <input type="submit" class="button" value="Retourner" id="retourner" name = "retourner">
+                    </form>
+                {% elseif media.status == false and condition == false %}
+                    <form >
+                        <!-- inutile, juste pour la mise en forme -->
+                        <input type="button" class="useless" value="Emprunter" id="emprunter">
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

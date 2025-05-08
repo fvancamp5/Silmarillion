@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title%} {% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('style/webstyle.css') }}">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url('home') }}" class="logo">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" >
+                <h1 class="title is-1"> Silmarillion </h1>
+            </a>
+            <div class = "nav">
+                {% if user %}
+                    <div class="are-medium">
+                        <a href="{{ url('logout') }}" >
+                            <button class="button" id="Deconnexion">Deconnexion</button>
+                        </a>
+                    </div>
+
+                <!-- si pas de user dans la session, on affiches les boutons de log-->
+                {% else %}
+                    <div class="are-medium">
+                        <a href="{{ url('inscription') }}" >
+                        <button class="button" id="Inscription" >Inscription</button>
+                        </a>
+                    </div>
+                    <div class="are-medium">
+                        <a href="{{ url('connexion') }}" >
+                            <button class="button" id="Connexion">Connexion</button>
+                        </a>
+                    </div>
+                {% endif %}
+                <form action="{{ url('search') }}" method="post" class="nav-search" id="form">
+                    <input type="text" name="query" id="query" placeholder="Recherche..." class="input is-primary">
+                    <input type="submit" class="button">
+                </form>
+            </div>
+
+        </header>
+        <main id="main" >
+            {% block body %}
+            {% endblock %}
+        </main>
+        <footer>
+            <a href="{{ url('legal') }}" >
+                <p> @Silmarillion CopyRights </p>
+            </a>
+        
+        </footer>
+        <script src="{{ asset('scripts/search_validation.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,623 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+:root {
+    --blue : #14213D;
+    --yellow : #FCA311;
+}
+
+/* --------------   Balises  ------------------ */
+
+header {
+    background-color: var(--blue);
+    color: white !important;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;  
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    justify-self: left;
+    display: flex;
+    flex: 0 0 auto;
+}
+
+main {
+    width: 100%;
+    padding: 0 0.5rem;
+}
+main input, main .button {
+    font-size: clamp(1rem, 1.5vw, 2.5rem) !important;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: white;
+    color: var(--blue);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box!important;
+
+}
+
+footer {
+    background-color: var(--yellow);
+    height: 3.5vh;
+    justify-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    font-size: 2vh;
+    text-decoration: none !important;
+    color: var(--blue) !important;
+}
+
+
+h1{
+    color: var(--blue);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+thead {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+td {
+    text-align: center !important;
+    max-width: 50% !important;
+    align-content: center;
+    padding: 0.5rem;
+    font-size: clamp(2rem, 3vw, 8rem) !important;
+    font-weight: 500 !important;
+    color: var(--blue);
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    margin-top: 2rem;
+    object-fit: contain;
+  }  
+
+
+/* --------------   Classes  ------------------ */
+
+.nav{
+    flex: auto;
+    margin-left: auto;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+.nav-search {
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-left: 1rem; 
+    max-width: 1080px; 
+    overflow: hidden; 
+}
+
+.nav-search input[type="text"]{
+    border-radius: 30rem 0 0 30rem;
+    border: white solid 0.125rem;
+}
+.nav-search input[type="submit"]{
+    border-radius: 0 30rem 30rem 0;
+    background-color: var(--yellow);
+    color: white;
+    height: auto;
+    border: white solid 0.125rem; 
+    font-weight: bold;
+}
+.nav-search input[type="submit"]:hover {
+    font-weight: bold;
+}
+.nav-search input[type="submit"]:active {
+    background: var(--blue);
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.pagination {
+    color: var(--blue);
+    font-weight: 700 !important;
+    font-size: clamp(1rem, 1.75vw, 4rem) !important;
+    text-align: center;
+}
+
+.select.is-primary {
+    border-radius: 0.5rem !important;
+    margin-left: 0.5rem !important;
+    font-size: clamp(0.75rem, 1.25vw, 3.5rem) !important;
+    color: var(--blue) !important;
+    border-color: var(--blue) !important;
+}
+
+.personnal {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+}
+
+.personnal a .button {
+    border-radius: 0.5rem !important;
+    font-size: 2rem;
+    font-weight: 700 !important;
+    padding: 0.5rem 1rem;
+}
+
+.icon {
+    margin: 0.5rem !important;
+}
+
+.title.is-primary {
+    font-size: clamp(3rem, 5vw, 12rem) !important;
+    font-weight: bold;
+    color: var(--blue);
+}
+.title.is-secondary {
+    font-size: clamp(1rem, 2.5vw, 4rem) !important;
+    font-weight: 500;
+    color: var(--blue);
+}
+
+form input[type="text"]{
+    color: var(--blue)!important;
+}
+
+.input.is-primary{
+    border-color:  var(--yellow);
+    outline: none;
+    height: auto !important;
+    background-color: white !important;
+}
+.input.is-primary:focus {
+    border: 2px solid var(--blue);
+    box-shadow: 0 0 2px var(--blue);
+}
+.input.is-primary:not([value = ""]) {
+    background: white;
+}
+input::placeholder {
+    color: var(--blue)!important;
+    font-weight: bold;
+}
+
+
+.cell {
+    justify-items: center;
+}
+
+.are-medium {
+    padding: 0 1rem;
+}
+
+.button, .useless{
+    font-size: 1rem;
+    font-weight: 500!important;
+    padding: 0.5rem 1rem;
+    height: auto;
+    border: white solid 1px ;
+    border-radius: 2rem;
+}
+.button {
+    background-color: var(--blue);
+    color: white;
+}
+#Inscription {
+    background-color: var(--yellow)!important;
+}
+#Delete {
+    width: 60%;
+    background-color: red!important;
+    color: white!important;
+    font-weight: 700!important;
+}
+
+.button:hover {
+    font-weight: bold;
+}
+
+.button:active {
+    background: var(--yellow);
+}
+#Inscription:active {
+    background: var(--blue)!important;
+}
+
+.useless {
+    background-color: rgb(195, 195, 195);
+    color: #444444;
+    cursor: not-allowed;
+}
+
+.useless:hover {
+    cursor: not-allowed;
+}
+
+
+.title.is-secondary.media {
+    text-align: left;
+    justify-self: flex-start !important;
+    margin: 1rem ;
+    width: 100%;
+    font-weight: 700!important;
+    font-size: clamp(1rem, 2.5vw, 4rem) !important;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    height: 4rem;
+    text-align: center;
+    align-items: center;
+    font-family: "Princess Sofia" ;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+}
+
+.media-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.media-page h1 {
+    margin-bottom: 4rem;
+    font-size: clamp(3rem, 5vw, 12rem) !important;
+    font-weight: 800!important;
+    align-content: center !important;
+    text-align: center !important;
+}
+
+.media-content, .account {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.account{
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.media-content {
+    align-items: center;
+    margin: 2rem 0;
+}
+.column{
+    flex-direction: column !important;
+}
+
+.media-image {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    height: 50vh !important; 
+}
+
+.media-details, .legal, .personal-info, .history {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto; 
+}
+
+.media-details, .personal-info {
+    max-width: 50%;
+}
+.full-width {
+    max-width: 100%;
+    width: 100% !important;
+}
+.history {
+    max-width: 100% !important;
+    align-items: stretch !important;
+    margin: 0 3rem !important;
+    width: 100%;
+}
+
+.legal {
+    max-width: 80%;
+    margin: 1rem auto;
+}
+
+.media-details, .legal, .personal-info h2 {
+    margin: 1rem 0;
+    font-size: clamp(2rem, 3vw, 8rem) !important;
+    font-weight: 600!important;
+    align-content: center !important;
+    text-align: left !important;
+    white-space: normal !important;
+}
+
+.personal-info table th {
+    font-size: clamp(1rem, 2.5vw, 4rem) !important;
+    font-weight: 700!important;
+    text-align: left !important;
+    color: var(--blue);
+}
+.personal-info table td {
+    font-size: clamp(0.6rem, 2vw, 3rem) !important;
+    font-weight: 500!important;
+    text-align: left !important;
+    color: var(--blue);
+    height: auto !important;
+}
+.history table th {
+    font-size: clamp(1rem, 2.5vw, 4rem) !important;
+    font-weight: 700!important;
+    text-align: center !important;
+    text-decoration: underline;
+    align-content: center !important;
+    color: var(--blue);
+    max-width: 50%;
+}
+.history table td {
+    width: 50% !important;
+}
+.history td a {
+    max-width: 70%;
+    height: auto;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.media-details form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    gap: 1rem;
+}
+
+.media-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: calc(100% / 5 );
+    height: auto;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+.media-item img {
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1/1;
+    margin: 0.5rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 0 2px var(--blue);
+}
+
+.media-item, .legal, .personal-info p {
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 700!important;
+    font-size: clamp(1rem, 1.75vw, 4rem) !important;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 0.5rem;
+}
+
+.filters .button {
+    font-size: clamp(1rem, 2.5vw, 4rem) !important;
+}
+
+
+/* --------------   Media Queries  ------------------ */
+
+
+@media (min-width: 769px) and (orientation: portrait) {
+    .media-item {
+        max-width : calc(100% / 3);
+    }
+    .media-item p {
+        font-size: clamp(2rem, 2.5vw, 4rem) !important;
+    }
+    .media-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .media-image {
+        max-width: 100%;
+        margin-bottom: 2rem;
+        align-items: unset !important;
+    }
+    .media-details {
+        max-width: 100%;
+    }
+    td {
+        width: auto!important;
+        vertical-align: top;
+    }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 0.01rem;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        border: none;
+        flex-wrap: wrap;
+    }
+
+    .nav-search {
+        width: 100%;
+        margin: 0.5rem 0;
+        flex-wrap: nowrap;
+    }
+
+    .nav-search input[type="text"] {
+        width: 100%;
+    }
+
+    .nav-search input[type="submit"] {
+        width: 30%;
+    }
+
+    .are-medium {
+        padding: 0.01rem;
+    }
+
+    .button {
+        width: 100%;
+        height: auto;
+    }
+    .media-item{
+        font-size: 1rem;
+        width: 100%;
+        height: 100%;
+        max-width: 10rem
+    }
+}
+
+@media (max-width: 460px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-search {
+        flex-wrap: nowrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-search input[type="text"] {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .nav-search input[type="submit"] {
+        width: 50%;
+        margin: 0.5rem 0;
+    }
+
+    .button {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .media-content, .account {
+        flex-direction: column;
+        align-items: center;
+    }
+    .media-image {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    .media-details, .legal, .personal-info {
+        max-width: 100%;
+        width: 100%;
+    }
+    td {
+        width: auto!important;
+        vertical-align: top;
+    }
+    .history{
+        margin: unset !important;
+    }
+    .history table td {
+        width: 50% !important;
+    }
+}
+
+/*bulma impose des tailles max en fonction de la taille de l'ecran, du coup je retire*/
+@media screen and (min-width: 1408px) {
+    .container:not(.is-max-tablet):not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width: unset; 
+    }
+}
+@media screen and (min-width: 1216px) {
+    .container:not(.is-max-tablet):not(.is-max-desktop) {
+    max-width: unset; 
+    }
+}
+@media screen and (min-width: 1024px) {
+    .container {
+    max-width: unset; 
+    }
+}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ page_name }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="title is-primary">Bienvenue chez Silmarillion !</h1>
+        <h2 class="title is-secondary">Vous pouvez ici emprunter des DVD, des livres ou encore des jeux vidéo.</h2>
+
+        {% if user %}
+            <div class="personnal">
+                <a href="{{ path('account') }}">
+                    <button class="button" id="account"> Mon Compte <img src="{{asset('images/account_icon.png')}}" class="icon" > </button>
+                </a>
+                <a href="{{ path('history') }}">
+                    <button class="button" id="history">Mes Emprunts <img src="{{asset('images/clock_icon.png')}}" class="icon"> </button>
+                </a>
+            </div>
+
+        {% endif %}
+        <div class="personnal">
+            <h2 class="title is-secondary media">Nos médias :  </h2> 
+        </div>
+        {% if user and "ROLE_ADMIN" in user.roles %}<a href="{{ path('ajout') }}" class="button">Ajouter +</a> {% endif %}
+        
+        <div class="content">
+            {% for media in medias.member %}
+                {% if media.status == true %}
+                    <a href="{{ path('home_id', { id: media.id }) }}" class="media-item">
+                        <img src="{{ asset('images/' ~ media.image) }}" alt="{{ media.title }}">
+                        <p>{{ media.title }}</p>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

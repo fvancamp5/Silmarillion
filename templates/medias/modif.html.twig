@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ media.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="media-page">
+        <h1 class="title is-primary"> Modification </h1> 
+        <div class="media-content column">
+            <div class="media-details full-width">
+                <form action="{{ path("modification", { id:media.id } ) }}" method="post">
+                    <label for="title">Titre :</label>
+                    <input type="text" class="input is-primary" id="title" name="title" value="{{ media.title }}">
+
+                    <label for="author">Auteur :</label>
+                    <input type="text" class="input is-primary" id="author" name="author" value="{{ media.author }}">
+
+                    <label for="type">Type :</label>
+                    <input type="text" class="input is-primary" id="type" name="type" value="{{ media.type }}">
+
+                    <label for="description">Description :</label>
+                    <input type="text" class="input is-primary" id="description" name="description" value="{{ media.description }}">
+
+                    <label for="image">Image :</label>
+                    <input type="text" class="input is-primary" id="image" name="image" value="{{ media.image }}">
+
+                    <input type="submit" class="button" value="Modifier">
+                    <input type="reset" class="button" id="Inscription" value="Annuler">
+                </form>
+            </div>
+            <a href="{{ path('suppression', {id:media.id}) }}" id="Delete" class="button"> Supprimer </a>
+        </div>
+    </div>
+    <script src="{{ asset('scripts/medias_validation.js') }}"></script>
+{% endblock %}

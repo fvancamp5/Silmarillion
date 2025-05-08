@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ page_name }}
+{% endblock %}
+
+{% block body %}
+    <script> const medias = {{ medias|json_encode|raw }}; </script>
+    <!-- reprise et modifs de l'ancienne version -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('scripts/statsCanva.js') }}" ></script>
+
+    <div class="container">
+        <h1 class="title is-primary"> Mon compte </h1>
+
+        <div class="account">
+            <div class="personal-info">
+            {% if not medias is empty %}
+                <h2 class="title is-secondary"> Statistiques des emprunts</h2>
+
+                <canvas id="Medias"></canvas>
+
+                <div class="filters" id="filterContainer">
+                    <button class="button" data-filter="auteur"> Auteurs </button>
+                    <button class="button" data-filter="type"> Types </button>
+                    <button class="button" data-filter="titre"> Titres </button>
+                </div>
+            {% else %}
+                <h2 class="title is-secondary"> Pas d'emprunt effectué </h2>
+            {% endif %}
+
+            </div>
+            <div class="personal-info">
+                <h1 class="title is-secondary"> Informations personnelles</h1>
+                <h2> Nom : {{ user.lastname }} </h2>
+                <h2> Prénom : {{ user.firstname }} </h2>
+                <h2> Email : {{ user.email }} </h2>
+            </div>
+        </div> 
+    </div>
+
+{% endblock %}

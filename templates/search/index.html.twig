@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ page_name }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="title is-primary"> Resultats pour : {{query}}</h1>
+
+        <form method="get" action="{{ path('search') }}" class="pagination">
+            <label for="itemsPerPage">Nombre de médias par page : </label>
+            <select name="itemsPerPage" class="select is-primary" id="itemsPerPage" onchange="this.form.submit()">
+                <option value="tout"{% if itemsPerPage == 0 %}selected{% endif %}>Afficher tout</option>
+                <option value="5" {% if itemsPerPage == 5 %}selected{% endif %}>5</option>
+                <option value="10" {% if itemsPerPage == 10 %}selected{% endif %}>10</option>
+                <option value="20" {% if itemsPerPage == 20 %}selected{% endif %}>20</option>
+            </select>
+        </form>
+        
+        <div class="content">
+            {% for media in medias %}
+                <a href="{{ path('home_id', { id: media.id }) }}" class="media-item">
+                    <img src="{{ asset('images/' ~ media.image) }}" alt="{{ media.title }}">
+                    <p>{{ media.title }}</p>
+                </a>
+            {% endfor %}
+        </div>
+
+
+        {% if itemsPerPage != 'tout' %}
+            <div>
+                {% set totalPages = (totalResults / itemsPerPage)|round(0, 'ceil') %} <!-- regarde le nombre de pages a avoir -->
+
+                {% if page > 1 %}
+                    <a href="{{ path('search', { query: query, itemsPerPage: itemsPerPage, page: page - 1 }) }}" class="button">
+                        Précédent
+                    </a>
+                {% endif %}
+
+                {% if page < totalPages %}
+                    <a href="{{ path('search', { query: query, itemsPerPage: itemsPerPage, page: page + 1 }) }}" class="button">
+                        Suivant
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

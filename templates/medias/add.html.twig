@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ajout d'un média
+{% endblock %}
+
+{% block body %}
+    <div class="media-page">
+        <h1 class="title is-primary"> Ajout </h1> 
+        <div class="media-content column">
+            <div class="media-details full-width">
+                <form action="{{ path("ajout") }}" method="post" id="form">
+                    <label for="title">Titre :</label>
+                    <input type="text" class="input is-primary" id="title" name="title" >
+
+                    <label for="author">Auteur :</label>
+                    <input type="text" class="input is-primary" id="author" name="author" >
+
+                    <label for="type">Type :</label>
+                    <input type="text" class="input is-primary" id="type" name="type" >
+
+                    <label for="description">Description :</label>
+                    <input type="text" class="input is-primary" id="description" name="description" >
+
+                    <label for="image">Image :</label>
+                    <input type="text" class="input is-primary" id="image" name="image" >
+
+                    <input type="submit" class="button" value="Ajouter">
+                    <input type="reset" class="button" id="Inscription" value="Annuler">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('scripts/medias_validation.js') }}"></script>
+{% endblock %}
