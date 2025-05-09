@@ -15,7 +15,7 @@ use Symfony\Component\HttpClient\HttpClient;
 final class MediasController extends AbstractController{
 
 
-#[Route('medias/{id}/', name: 'home_id', methods: ['GET', 'POST'])]
+#[Route('medias/{id}/', name: 'home_id', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
     function indexMedia(SessionInterface $session,int $id, Request $request): Response {
 
         // Récupère l'utilisateur connecté avce la session (pas avec des cookies)

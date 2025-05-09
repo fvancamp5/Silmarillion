@@ -81,10 +81,10 @@ final class HomeController extends AbstractController{
             ];
             //fait la demande a l'api
             $httpClient = HttpClient::create();
-            $response = $httpClient->request('POST', 'http://vm-loulou.van-camp.fr:8080/api/register', [
+            $response = $httpClient->request('POST', 'http://vm-loulou.van-camp.fr:8000/api/register', [
                 'json' => $data
             ]);
-
+            //dd($response);
             //verifie que c'est bien un 201
             if ($response->getStatusCode() === 201) {
                 $responseData = $response->toArray();

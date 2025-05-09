@@ -13,7 +13,7 @@ use Symfony\Component\HttpClient\HttpClient;
 
 final class SearchController extends AbstractController
 {
-    #[Route('recherche/', name: 'search', methods: ['GET', 'POST'])]
+    #[Route('/recherche', name: 'search', methods: ['GET', 'POST'])]
     public function index(SessionInterface $session, Request $request): Response {
         // Récupère l'utilisateur connecté avce la session (pas avec des cookies)
         $user = $session->get('user');
