@@ -36,24 +36,26 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/$, roles: PUBLIC_ACCESS } 
-        - { path: ^/api, roles: PUBLIC_ACCESS }
-        - { path: ^/auth, roles: PUBLIC_ACCESS }
-        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api, roles: PUBLIC_ACCESS }        
 
         # medias
         - { path: ^/api/medias, roles : PUBLIC_ACCESS, methods: [GET] }
         - { path: ^/api/medias, roles : ROLE_ADMIN, methods: [POST] }
         - { path: ^/api/medias/\d+, roles : IS_AUTHENTICATED_FULLY, methods: [GET] }
         - { path: ^/api/medias/\d+, roles : ROLE_ADMIN, methods: [PATCH, DELETE] }
+        - { path: ^/api/medias/search, roles : PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api/medias/\d+/is-loan, roles : PUBLIC_ACCESS, methods: [GET] }
 
+        #hystories
         - { path: ^/api/histories, roles : IS_AUTHENTICATED_FULLY, methods: [GET] }
 
-        - { path: ^/api/loans, roles : IS_AUTHENTICATED_FULLY }
+        # loans
+        - { path: ^/api/loans, roles : IS_AUTHENTICATED_FULLY, methods: [GET, POST, DELETE] }
 
+        # users
         - { path: ^/api/register, roles : PUBLIC_ACCESS }
         - { path: ^/api/me, roles : IS_AUTHENTICATED_FULLY }
-
-        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/auth, roles: PUBLIC_ACCESS }
 
 when@test:
     security:

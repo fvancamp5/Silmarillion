@@ -1,9 +1,6 @@
 # Rattrapage_web_mediatheque
 Le projet vise la réalisation d'une application web permettant la gestion complète d'une médiathèque regroupant des livres, DVD et jeux vidéo. L'application devra disposer d'un Frontend clair et intuitif, un Backend structuré en API REST, et une base de données relationnelle (BDD).
 
-## Erreur
-**Si vous n'arrivez pas à accéder à l'application :**
-Une vidéo de démonstration est disponible filmée à partir de la release v1.0.2
 
 ## Installation
 
@@ -17,6 +14,11 @@ Une vidéo de démonstration est disponible filmée à partir de la release v1.0
 ## Configuration
 
 **Hosting**
+Sur la machine virtuelle Ubuntu, (sur une seule adresse IP) l'app et l'API sont sur deux ports différents. Afin d'accéder au site deux reverse proxies ont été réalisés : 
+- https://silmarillion.van-camp.fr pour l'application
+- https://silmarillion-api.van-camp.fr/api pour la documentation de l'API
+
+Pour cela, Bunkerity, un Web Application Firewall a été utilisé afin d'ajouter une couche de sécurité supplémentaire. Si du brut force est tenté, l'adresse ip sera blacklist.
 
 
 **PHPmyadmin**
@@ -38,7 +40,7 @@ https://www.figma.com/proto/i77g0HxKCzoeSqL1fbiiYo/Web-Rattrapage?page-id=0%3A1&
 - Définition d'une charte graphique
 - Utilisation de Bulma
 
-**code**
+**Code**
 
 - Pour la partie back-end, les Entity vont faire le lien avec la bdd, definir ou garder les champs des tables et proposer des methodes pour recuper les objets associés grâce à doctrine. Tandis que Repository va nous permettre de faire nos propres methodes d'objets afin de réaliser des requettes non pas avec PDO mais avec connection
  
@@ -57,7 +59,7 @@ https://www.figma.com/proto/i77g0HxKCzoeSqL1fbiiYo/Web-Rattrapage?page-id=0%3A1&
 
    - Création des routes avec des méthodes CRUD afin de fournir les informations des champs de la BDD
 
-   - Création de routes ammenant vers des méthodes personnalisées executant des requettes SQL préparées (ex : rechercher, ajouter supprimer un média tout en mettant à jour les autres tables)
+   - Création de routes ammenant vers des méthodes personnalisées executant des requettes SQL préparées (ex : rechercher, ajouter supprimer un média tout en mettant à jour les autres tables) ![alt text](imgREADME/image-10.png)
 
 En partant du principe qu'un administrateur est un utilisateur avec des privilèges, un administrateur se connecte avec son compte comme un utilisateur normal, mais aura des accès supplémentaires. Le status admin est définit par "ROLE_ADMIN".
 
@@ -69,11 +71,24 @@ En partant du principe qu'un administrateur est un utilisateur avec des privilè
 - Email : `admin@cesi.fr`
 - Mot de Passe : `4dm1n_p422w0rd`
 
+**Médias**
 Les médias déjà empruntés ne sont pas visibles depuis la page d'accueil, mais ils apparaissent dans les résultats de recherche ou peuvent être consultés directement via l'URL `Silmarillion/medias/{id}` si vous connaissez leur identifiant.
+Avec un compte avec le role admin, vous pouvez : 
+- Ajouter un média depuis la page d'accueil en remplissant les champ (en ce qui concerne l'image, il faut la télécharger et la placer dans public/images)
+- Modifier un média 
+- Supprimer un média (!Attention : l'action est définitive!)
 
+**Recherche**
 La recherche s'effectue depuis la barre de navigation :
 - Vous pouvez laisser le champ vide pour afficher tous les médias
 - Vous pouvez saisir des termes pour effectuer une recherche avancée
 - Le format de pagination peut être ajusté via le sélecteur disponible sur la page de recherche
 
+**Accueil**
+En s'identifiant, deux boutons apparaissent sur la page d'accueil : 
+- Un pour voir les informations de son compte ainsi qu'un graphique permettant de voir les statistiques des emprunt
+- Un pour voir les emprunts actuels ainsi que l'historique de tous les emprunts
 
+
+**En cas de problème**
+Si la moindre fonctionnalité ne fonctionne pas, une vidéo démonstration est disponible (vidéo réalisée à partir de la version v1.0.2 du repo Mediatheque_Silmarillion) <video controls src="silmarillion_démo.mp4" title="Title"></video>
